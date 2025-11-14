@@ -1,0 +1,23 @@
+[project]
+name = "machine-learning-zoomcamp-midterm-project"
+version = "0.1.0"
+description = "Machine Learning Zoomcamp 2025 · Midterm project"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.121.2",
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "scikit-learn>=1.7.2",
+    "seaborn>=0.13.2",
+    "tqdm>=4.67.1",
+    "ucimlrepo>=0.0.7",
+    "uvicorn>=0.38.0",
+    "xgboost>=3.1.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.1.0",
+]
