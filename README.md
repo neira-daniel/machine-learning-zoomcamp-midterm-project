@@ -130,6 +130,10 @@ The dataset has been pre-processed by its maintainers. [Quoting](https://archive
 
 In spite of that, we found some "Height" measurements equal to zero. We removed them from the dataset. We did the same with a couple of outliers.
 
+By fitting a simple linear model and looking at the way the features behave, we found that this is a non-linear problem and that the data is heteroscedastic. That is, that the feature variables have different variance from each other. So, they aren't constant, but heterogeneous.
+
+This phenomena calls for the use of models that can deal with that complexity. In particular, trees are a good option.
+
 ## Modeling approach & metrics
 
 As previously mentioned, this dataset lends itself to be treated as a regression or a classification problem.
@@ -150,7 +154,9 @@ This approach proved to be difficult. Under it, we needed to deal with the datas
 
 ## Known limitations and next steps
 
-Regarding the modeling:
+The performance of the fitted models is modest. We can't trust them in production and we need to improve them.
+
+Next steps regarding the modeling:
 
 - Regression:
     - Try more hyperparameter values
@@ -161,9 +167,10 @@ Regarding the modeling:
         - How to measure the model performance
         - How to compare models
         - Best practices
-    - Try simpler models than XGBoost
-    - Tune the hyperparameters at the same time, as a product of all the candidates
+        - Among others
+    - Try simpler models than XGBoost and explore the data set with them
+    - Tune the hyperparameters of the models at the same time, as a product of all the candidates
 
-Regarding the containerization:
+And regarding the containerization:
 
 - Explore alternatives for reducing the Docker image size
