@@ -88,7 +88,19 @@ docker run -it --entrypoint /bin/bash abalone-predict
 
 ## Problem statement
 
-TODO.
+The procedure to determine the age of [abalone](https://en.wikipedia.org/wiki/Abalone) sea snails is invasive. As [described by the maintainers of the abalone dataset](https://archive.ics.uci.edu/dataset/1/abalone) we'll use:
+
+> The age of abalone is determined by cutting the shell through the cone, staining it, and counting the number of rings through a microscope -- a boring and time-consuming task.
+
+We'd like to predict the age of abalones without having to perform the described procedure on them. Quoting again the maintainers:
+
+> Other measurements, which are easier to obtain, are used to predict the age.
+
+This isn't necessarily simple:
+
+> Further information, such as weather patterns and location (hence food availability) may be required to solve the problem.
+
+But it's worth to try to prevent people having to perform the invasive procedure described to determine the age of abalones.
 
 ## Dataset description
 
@@ -99,14 +111,6 @@ TODO.
 TODO.
 
 ## Modeling approach & metrics
-
-TODO.
-
-## How to run locally and via Docker
-
-TODO.
-
-## API usage example
 
 TODO.
 
