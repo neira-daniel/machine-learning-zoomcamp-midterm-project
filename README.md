@@ -60,7 +60,7 @@ uv run predict_client.py --matrix '[["M",0.455,0.365,0.095,0.514,0.2245,0.101,0.
 
 Finally, we stop the server pressing `CTRL-c` in the terminal where it is running.
 
-## Using Docker
+### Using Docker
 
 This application has a Dockerfile we can use to create a Docker image and then run it.
 
@@ -104,11 +104,31 @@ But it's worth to try to prevent people having to perform the invasive procedure
 
 ## Dataset description
 
-TODO.
+We reproduce here the dataset information that appears both in the `abalone.names` file (included in the `abalone.zip` file when downloading it by hand) and the "Variables Table" section in the [dataset's webpage](https://archive.ics.uci.edu/dataset/1/abalone):
+
+| Name            | Data Type   | Meas.   | Description                         |
+|-----------------|-------------|---------|-------------------------------------|
+| Sex             | nominal     |         | M, F, and I (infant)                |
+| Length          | continuous  | mm      | Longest shell measurement           |
+| Diameter        | continuous  | mm      | Perpendicular to length             |
+| Height          | continuous  | mm      | With meat in shell                  |
+| Whole weight    | continuous  | grams   | Whole abalone                       |
+| Shucked weight  | continuous  | grams   | Weight of meat                      |
+| Viscera weight  | continuous  | grams   | Gut weight (after bleeding)         |
+| Shell weight    | continuous  | grams   | After being dried                   |
+| Rings           | integer     |         | +1.5 gives the age in years         |
+
+The target variable is "Rings". It contains integers whose values are meaningful. We can then try to fit either a regression or a classification model to them.
+
+The only feature variable that isn't numerical is "Sex". It has three labels that we'll need to encode accordingly to fit a model.
 
 ## EDA summary
 
-TODO.
+The dataset has been pre-processed by its maintainers. [Quoting](https://archive.ics.uci.edu/dataset/1/abalone) them:
+
+> From the original data examples with missing values were removed (the majority having the predicted value missing), and the ranges of the continuous values have been scaled for use with an ANN (by dividing by 200).
+
+In spite of that, we found some "Height" measurements equal to zero. We removed them from the dataset. We did the same with a couple of outliers.
 
 ## Modeling approach & metrics
 
