@@ -132,8 +132,38 @@ In spite of that, we found some "Height" measurements equal to zero. We removed 
 
 ## Modeling approach & metrics
 
-TODO.
+As previously mentioned, this dataset lends itself to be treated as a regression or a classification problem.
 
-## Known limitations / next steps
+We chose to treat the target as a continous value and fitted regression models.
 
-TODO.
+The models fitted are the following:
+
+- Simple linear regression
+- Decision trees
+- Random forests
+
+In this case, we measured the performance of the models using RMSE.
+
+We also explored the possibility of treating the problem as a classification task. We used XGBoost for that.
+
+This approach proved to be difficult. Under it, we needed to deal with the dataset in the context of a multi-class problem.
+
+## Known limitations and next steps
+
+Regarding the modeling:
+
+- Regression:
+    - Try more hyperparameter values
+    - Train the hyperparameter models using the product of all the candidate values and not to train each of them in a sequence
+    - Try an XGBoost regression model on the data
+- Classification
+    - Revise the theoretical and practical approach to multi-class modeling
+        - How to measure the model performance
+        - How to compare models
+        - Best practices
+    - Try simpler models than XGBoost
+    - Tune the hyperparameters at the same time, as a product of all the candidates
+
+Regarding the containerization:
+
+- Explore alternatives for reducing the Docker image size
